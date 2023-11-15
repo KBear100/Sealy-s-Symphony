@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1350111a78a00254386016b026baf56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songBpm: 120
+  songBpm: 175
   secPerBeat: 0
   songPosition: 0
   songPositionInBeats: 0
@@ -52,7 +52,12 @@ MonoBehaviour:
   currentBeat: 0
   dspSongTime: 0
   musicSource: {fileID: 0}
-  noteObject: {fileID: 0}
+  noteObject: {fileID: 5081488083665031673, guid: b0427e6f7accb0b4bb497d0af9abfa18, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   notes:
   - 1
   - 3

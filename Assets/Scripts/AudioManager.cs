@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     [Header("Note")]
     [SerializeField] GameObject noteObject;
+    [SerializeField] Transform[] spawnPoints;
     [SerializeField] float[] notes;
     int nextIndex = 0;
     [SerializeField] float beatsShownInAdvance;
@@ -38,7 +39,9 @@ public class AudioManager : MonoBehaviour
 
         if(nextIndex < notes.Length && notes[nextIndex] == currentBeat)
         {
-            Instantiate(noteObject);
+            int rand = Random.Range(0, 4);
+            GameObject note = Instantiate(noteObject, spawnPoints[rand].position, spawnPoints[rand].rotation);
+            note.GetComponent<Note>().beatOfThisNote = currentBeat;
             nextIndex++;
         }
         if(nextIndex >= notes.Length) nextIndex = 0;
