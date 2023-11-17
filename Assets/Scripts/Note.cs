@@ -6,7 +6,8 @@ public class Note : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float speed;
-    [Header("AudioStuff")]
+    public Transform spawn;
+    public Transform goal;
     public float beatOfThisNote;
 
     void Start()
