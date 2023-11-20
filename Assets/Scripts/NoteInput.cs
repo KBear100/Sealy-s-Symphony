@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class NoteInput : MonoBehaviour
 {
-    public KeyCode inputKey;
-    public bool noteInBox;
-    GameObject note;
+    [SerializeField] KeyCode inputKey;
+    [SerializeField] Player player;
+
+    private bool noteInBox;
+    private GameObject note;
 
     void Update()
     {
@@ -31,7 +33,8 @@ public class NoteInput : MonoBehaviour
         //Debug.Log("Note pressed!");
         if(noteInBox)
         {
-            Debug.Log("Success");
+            player.score += 100;
+            player.combo++;
             Destroy(note.gameObject);
         }
     }

@@ -19,12 +19,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] float[] notes;
     int nextIndex = 0;
     [SerializeField] float beatsShownInAdvance;
+    [Header("Player")]
+    [SerializeField] Player player;
 
     void Start()
     {
         secPerBeat = 60f / songBpm;
         dspSongTime = (float)AudioSettings.dspTime;
         musicSource.Play();
+        player.songTitle_Txt.text = musicSource.clip.name;
     }
 
     void Update()
@@ -42,6 +45,7 @@ public class AudioManager : MonoBehaviour
             int rand = Random.Range(0, 4);
             GameObject note = Instantiate(noteObject, spawnPoints[rand].position, spawnPoints[rand].rotation);
             note.GetComponent<Note>().beatOfThisNote = currentBeat;
+            note.GetComponent<Note>().player = player;
             nextIndex++;
         }
         if(nextIndex >= notes.Length) nextIndex = 0;
