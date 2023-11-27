@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1350111a78a00254386016b026baf56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songBpm: 175
+  songBpm: 125
   secPerBeat: 0
   songPosition: 0
   songPositionInBeats: 0
@@ -59,15 +59,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  goalPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   notes:
   - 1
   - 3
-  beatsShownInAdvance: 3
+  player: {fileID: 0}
 --- !u!82 &7968691666506140893
 AudioSource:
   m_ObjectHideFlags: 0
@@ -78,7 +73,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0b6c0f5d9973419449798fac7f023c22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2fd57eda526749d4eb9c2322b67278f4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
