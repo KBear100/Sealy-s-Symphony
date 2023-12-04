@@ -2,6 +2,16 @@ using System;
 using System.IO;
 using UnityEngine;
 
+/* 
+    * CREDITS FOR EVERYTHING *
+    //Reading
+    Read String Base code: https://c-sharpcorner.com/UploadFile/mahesh/how-to-read-a-text-file-in-C-Sharp/
+    Split String to words: https://ironpdf.com/blog/net-help/csharp-split-string-guide/#:~:text=Imagine%20you%20have%20a%20sentence,based%20on%20a%20given%20separator.
+          
+    //Writing
+    Write File Base Code: https://www.c-sharpcorner.com/article/c-sharp-write-to-file/
+    Clear Information from File: https://www.techiedelight.com/clear-contents-of-file-csharp/
+*/
 public class SongInfo : MonoBehaviour
 {
     /*Just a bunch of classes to call elsewhere*/
