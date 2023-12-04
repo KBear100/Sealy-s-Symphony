@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NoteInput : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class NoteInput : MonoBehaviour
 
     private bool noteInBox;
     private GameObject note;
+    private Touch touch;
 
     void Update()
     {
@@ -20,6 +22,12 @@ public class NoteInput : MonoBehaviour
         {
             HandleNoteRelease();
         }
+
+        //if(Input.touchCount > 0)
+        //{
+        //    touch = Input.GetTouch(0);
+        //    HandleNotePress();
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -28,7 +36,12 @@ public class NoteInput : MonoBehaviour
         note = collision.gameObject;
     }
 
-    void HandleNotePress()
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        noteInBox = false;
+    }
+
+    public void HandleNotePress()
     {
         //Debug.Log("Note pressed!");
         if(noteInBox)
@@ -36,6 +49,7 @@ public class NoteInput : MonoBehaviour
             player.score += 100;
             player.combo++;
             Destroy(note.gameObject);
+            noteInBox = false;
         }
     }
 
