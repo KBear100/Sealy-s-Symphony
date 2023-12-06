@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
 
         if(health <= 0)
         {
-            Debug.Log("Dead");
+            SceneManager.LoadSceneAsync("SongSelect", LoadSceneMode.Single);
         }
     }
 }

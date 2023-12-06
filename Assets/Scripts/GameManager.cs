@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     //serialize fields
     [SerializeField] AudioSource title_theme;
     [SerializeField] Button start;
-    
+
+    bool buttonPressed = false;
 
     //song list variables
     static int q = 0;
@@ -95,7 +96,8 @@ public class GameManager : MonoBehaviour
         title_theme.Stop();
         current = State.SONG_SELECT;
         Debug.Log($"Button Pressed: {current}");
-        SceneManager.LoadSceneAsync("SongSelect", LoadSceneMode.Single);
+        if(!buttonPressed) SceneManager.LoadSceneAsync("SongSelect", LoadSceneMode.Single);
+        buttonPressed = true;
     }
 
     /*CODE CLEANUP*/
