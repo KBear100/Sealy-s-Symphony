@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         //Singleton Game Manager
         if (game != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case State.SONG_SELECT:
-                
+                buttonPressed = false;
                 break;
 
             case State.PLAY:
