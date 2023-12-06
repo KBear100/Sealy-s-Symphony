@@ -2995,6 +2995,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1886742300}
     - target: {fileID: 2631750216265879357, guid: 8bf8e073d7992be4a9e532bc714d6dbe, type: 3}
+      propertyPath: songBpm
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631750216265879357, guid: 8bf8e073d7992be4a9e532bc714d6dbe, type: 3}
       propertyPath: spawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1869294613}
@@ -3014,6 +3018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7968691666506140893, guid: 8bf8e073d7992be4a9e532bc714d6dbe, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ea035025cb789644b9ac7c3ad9bb1809, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
