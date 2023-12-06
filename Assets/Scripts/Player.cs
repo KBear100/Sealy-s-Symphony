@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
         if(health <= 0)
         {
+            GameManager.game.SongEnd(score);
             SceneManager.LoadSceneAsync("SongSelect", LoadSceneMode.Single);
         }
     }

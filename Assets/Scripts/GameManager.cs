@@ -30,8 +30,7 @@ public class GameManager : MonoBehaviour
         TITLE,
         SONG_SELECT,
         PLAY,
-        WIN,
-        LOSE
+        GAME_END
     }
     State current;
 
@@ -70,7 +69,14 @@ public class GameManager : MonoBehaviour
                     title_theme.Play();
                 }
                 //SceneManager.LoadScene("Title");
-                start.onClick.AddListener(OnPlayGame);
+                if (start == null)
+                {
+                    start = GameObject.FindGameObjectWithTag("PlayGame").GetComponent<Button>();
+                }
+                else 
+                { 
+                    start.onClick.AddListener(OnPlayGame);
+                }
                 break;
 
             case State.SONG_SELECT:
@@ -78,13 +84,10 @@ public class GameManager : MonoBehaviour
                 break;
 
             case State.PLAY:
-                SceneManager.LoadScene("SampleScene");
+                //SceneManager.LoadScene("SampleScene");
                 break;
 
-            case State.WIN:
-                break;
-
-            case State.LOSE:
+            case State.GAME_END:
                 break;
             
         }
@@ -98,6 +101,28 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Button Pressed: {current}");
         if(!buttonPressed) SceneManager.LoadSceneAsync("SongSelect", LoadSceneMode.Single);
         buttonPressed = true;
+    }
+
+    public void SongSelectTitle()//back to title after leaving song select
+    {
+        current = State.TITLE;
+    }
+
+    public void PlayGame() //play song
+    {
+        current = State.PLAY;
+    }
+
+    public void BackToSelect() //back to song select
+    {
+        current = State.SONG_SELECT;
+    }
+
+    public void SongEnd(int score) //song end (maybe set new score)
+    {
+        current = State.GAME_END;
+        SongInfo.CompareScore("Coconut Mall (Mario Kart Wii)",score,songs,lncount);
+        BackToSelect();
     }
 
     /*CODE CLEANUP*/

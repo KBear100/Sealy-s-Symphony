@@ -32,6 +32,8 @@ public class SongSelect : MonoBehaviour
 
     private int songIndex = 0;
 
+    //game manager
+
     void Start()
     {
         currentSongName.text = songNames[0];
@@ -84,11 +86,13 @@ public class SongSelect : MonoBehaviour
 
     public void ToTitle()
     {
+        GameManager.game.SongSelectTitle();
         SceneManager.LoadSceneAsync("Title", LoadSceneMode.Single);
     }
 
     public void Play()
     {
+        GameManager.game.PlayGame();
         SceneManager.LoadSceneAsync("SampleScene", LoadSceneMode.Single);
     }
 
