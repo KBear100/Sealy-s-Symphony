@@ -2,13 +2,15 @@ using Symphony;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private const string s = "Assets/Audio/Spinning Seal - GifSound.mp3";
 
     //serialize fields
-    //AudioClip title_theme = s;
+    [SerializeField] AudioSource title_theme;
+    [SerializeField] Button start;
     
 
     //song list variables
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //Singleton Game Manager
-        if (game != null && game != this)
+        if (game != null)
         {
             Destroy(this);
         }
@@ -62,11 +64,16 @@ public class GameManager : MonoBehaviour
         switch (current)
         { 
             case State.TITLE:
-                SceneManager.LoadScene("Title");
+                if (!title_theme.isPlaying)
+                {
+                    title_theme.Play();
+                }
+                //SceneManager.LoadScene("Title");
+                start.onClick.AddListener(OnPlayGame);
                 break;
 
             case State.SONG_SELECT:
-                SceneManager.LoadScene("SongSelect");
+                
                 break;
 
             case State.PLAY:
@@ -82,6 +89,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*FUNCTIONS*/
+    public void OnPlayGame() //hit play on title screen
+    { 
+        title_theme.Stop();
+        current = State.SONG_SELECT;
+        Debug.Log($"Button Pressed: {current}");
+        SceneManager.LoadSceneAsync("SongSelect", LoadSceneMode.Single);
+    }
+
+    /*CODE CLEANUP*/
     private void OnApplicationQuit()
     {
         songs = null;
